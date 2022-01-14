@@ -332,14 +332,15 @@ public class Main {
                     System.out.print("Теперь ты увеличишь свой iq на ");
                     while (true) {
                         onIq = in.nextInt();
-                        if (onIq + yourIq <= 175) {
+                        if (onIq + yourIq <= 175 && onIq > 0) {
                             System.out.println("Ну вот, можно же не перебарщивать.");
                             break;
-                        } else
-                            System.out.print(name + ", пожалуйста введи адекватное число, не больше " + maxOnIq + "! Например ты хочешь увелечить на ");
+                        } else if (onIq + yourIq > 175 && onIq > 0)System.out.print(name + ", пожалуйста введи адекватное число, не больше " + maxOnIq + "! Например ты хочешь увелечить на ");
+                        else if (onIq < 1) System.out.println("Так, но не надо тут таких чисел, минимум 1, вводи адекватно!");
                     }
                 }
 
+                if (onIq < 25 && onIq > 0) System.out.println("Ну конечно, не на много увеличите вы свой iq, но это ваш выбор.");
                 if (want.toLowerCase().equals("нет")) System.out.println("Ну как хотите, сами виноваты.");
                 System.out.println("Ты уже близко к итогам!");
                 System.out.println("Ну что, " + name + ", ты готов к своим новым результатам iq? Да?");
@@ -434,7 +435,7 @@ public class Main {
 
                 if (ifYes.toLowerCase().equals("да")) {
                     String[][] questions = {
-                            {"( 1 345 + 25 ) : 2 * 5 * 2  - 2 283 * 3. x = ", "6x – 2x – 6 = 3x – 2x – 3. x = ", "-0,2x + 2,7 = 1,4 + 1,1x. x = "},  //1
+                            {"( 1 345 + 25 ) : 2 * 5 * 2  - 2 283 * 3 = ", "6x – 2x – 6 = 3x – 2x – 3. x = ", "-0,2x + 2,7 = 1,4 + 1,1x. x = "},  //1
                             {"(3x + 5)/(x – 1) = (2x + 18)/(2x – 2). x = ", "-5х - 3 = -13. x = ", "4x + 2 = 2x + 10 - 2x. x = "},        //2
                             {"7x + 3 = 30 − 2x. x = ", "5 − 2(x − 1) = 4 − x. x = ", "120 : y - 23 = 17. y ="},             //3
                             {"3(x − 2) = x + 2. x = ", "64 : x = 16. x = ", "55 - y * 10 = 15. y = "},             //4
